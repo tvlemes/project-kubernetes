@@ -1,0 +1,26 @@
+Verificando Status:
+$ minikube status
+
+Pega os pods instalados:
+$ minikube get pods
+
+Para pausar o cluster:
+$ minikube pause
+
+Para despauser o cluster:
+$ minikube unpause
+
+Para parar o cluster:
+$ minikube stop
+
+Para iniciar o cluster:
+$ minikube start
+
+Para parar o cluster:
+$ minikube addons list
+
+Para deletar o cluster:
+$ minikube delete --all
+
+Para pegar namespaces:
+$ kubectl get namespaces

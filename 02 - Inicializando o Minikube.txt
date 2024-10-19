@@ -1,0 +1,6 @@
+Para inicializar o Minikube digite no 
+terminal:
+$ minikube start --driver=docker 
+
+Para deletar o Minikube:
+$ minikube delete

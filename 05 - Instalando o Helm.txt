@@ -1,0 +1,8 @@
+Instalando o Helm
+$ choco install kubernetes-helm
+
+Para instalar um pacote acesse https://artifacthub.io/packages/helm/
+e procure pelo nome do pacote ao lado direito está como instalar
+
+Verificando status:
+$ helm status nome_pacote

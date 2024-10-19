@@ -1,0 +1,9 @@
+Verificando o context do docker:
+$ docker context ls
+OBS.: ajustando o contexto do Docker, deve estar no default, caso não esteja utilize o comando
+abaixo:
+$ docker context use default
+
+
+Instalando o Minikube:
+$ choco install minikube

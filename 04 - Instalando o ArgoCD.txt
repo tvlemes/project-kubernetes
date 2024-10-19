@@ -1,0 +1,42 @@
+Instalando o openssl:
+$ choco install openssl
+
+Instalando o base64:
+$ choco install base64
+
+Criando o namespace:
+$ kubectl create namespace argocd
+
+Instalando ArgoCD pelo Yaml:
+apply   -> dentro do cluster
+-n      -> Nome do namespace
+-f      -> Para receber arquivo ou link 
+$ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+Instalando o ArgoCD pelo Helm:
+$ helm repo add argo https://argoproj.github.io/argo-helm
+$ helm install argocd argo/argo-cd --namespace argocd
+
+Pegando a senha:
+$ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d 
+Usuário: admin
+Senha: l89sU3jahYqPps19
+
+Redirecionamento de porta:
+$ kubectl port-forward service/argocd-server -n argocd 8080:443
+ou
+$ kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+Gerando a chave pública e privada
+$ ssh-keygen -t rsa -b 4096 -C "contatothiagolemes@gmail.com"
+
+Após gerar a chave vá na pasta local C:\Users\Thiago\.ssh
+dentro dela a 3 arquivos:
+id_rsa -> esse é para colocar no ArgoCD
+known_hosts -> este é para colocar em perfil(foto) -> Settings -> SSH and GCP keys(lado esquerdo do menu) -> SSH keys
+adicione a chave no campo. OBS.: RETIRE O IGUAL AO FINAL DA CHAVE
+
+Dentro do ArgoCD - localhost:8080, crie a nova conexão após criada retire o usuário e a senha
+
+Verificando os status dos serviços ArgoCD:
+$ kubectl get pod -n argocd

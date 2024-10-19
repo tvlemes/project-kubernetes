@@ -1,0 +1,18 @@
+Adicionando o repositório
+$ helm repo add bitnami https://charts.bitnami.com/bitnami
+
+Instalando o MiniO:
+$ helm install my-minio bitnami/minio --version 14.8.0
+
+Direcionando a porta do MiniO
+$ kubectl port-forward --namespace default svc/my-minio 9001
+ou
+$ kubectl port-forward --namespace default svc/minio 9001:9001
+
+Para acessar no navegador
+$ http://127.0.0.1:9001/minio
+
+Pegando o úsuario do MiniO
+kubectl get secret --namespace default minio -o jsonpath="{.data.root-user}" | base64 -d
+Pegando o senha do MiniO
+kubectl get secret --namespace default minio -o jsonpath="{.data.root-password}" | base64 -d
